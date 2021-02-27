@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<string.h>
+#define out 0
+#define in 1
+int main()
+{
+	char a[100],b[100];
+	int i,j,c=0,wc=0,state=out,s;
+	gets(a);
+	for(i=0;a[i]!='\0';i++)
+	{
+		if(a[i]==32)
+		  c++;
+	}
+	for(i=0;a[i]!='\0';i++)
+	{
+		if(a[i]==' '||a[i]=='\n'||a[i]=='\t')
+		  state=out;
+		else if(state==out)
+		{state=in;
+		  ++wc;
+		}
+	}
+	s=c/(wc-1);
+	for(i=0;a[i]!='\0';i++)
+	{
+		b[i]=a[i];
+	  	if(b[i]==32)
+		{
+			for(j=i;j<i+s;j++)
+			{
+			  b[j]=' ';
+		    }
+		}
+		i=j;
+	}
+	printf("%s",b);
+	
+}
