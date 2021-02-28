@@ -1,0 +1,36 @@
+#include<stdio.h>
+int main()
+{
+	float a[100],b[100],c[200];
+	int i,j,k,x,y,temp;
+	scanf("%d%d",&x,&y);
+	for(i=0;i<x;i++)
+	{
+	  scanf("%f",&a[i]);
+	  c[i]=a[i];
+    }
+    j=i;
+	for(i=0;i<y;i++)
+	{
+	  scanf("%f",&b[i]);
+	  c[j]=b[i];
+	  j++;
+    }
+	for(i=0;i<j;i++)
+	{
+		for(k=i+1;k<j;k++)
+		{
+			if(c[i]>c[k])
+			{
+				temp=c[i];
+				c[i]=c[k];
+				c[k]=temp;
+			}
+		}
+	}
+	if(j%2==0)
+		printf("%f",(c[j/2]+c[(j/2)-1])/2);
+	else
+	  printf("%f",c[j/2]);
+	
+}
